@@ -28,8 +28,8 @@ namespace AddressBook
         }
         public void Edit(string Name)
         {
-            Contact editContact =null;
-            foreach (var Contact in contacts) 
+            Contact editContact = null;
+            foreach (var Contact in contacts)
             {
 
                 if (Contact.firstName.Contains(Name))
@@ -54,7 +54,24 @@ namespace AddressBook
 
             contacts.Add(editContact);
             Console.WriteLine($"Contact of {Name} has been edited");
+        }
 
+            public void Remove(string name)
+            {
+                Contact RemoveContact = null;
+                foreach (var contact in contacts)
+                {
+                    if (contact.firstName.Contains(name))
+                    {
+                        RemoveContact = contact;
+                    }
+                }
+                contacts.Remove(RemoveContact);
+                Console.WriteLine($"Contact of {name} has been deleted");
+            }
         }
     }
-}
+
+
+    
+

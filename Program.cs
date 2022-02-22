@@ -40,7 +40,9 @@ namespace AddressBook
 
             addressBook.addContact(firstName, lastName, email, phoneNo , address, zip , state);
 
-
+            Console.WriteLine("\nIf you want to delete contact plz enter name");
+            string firstname = Console.ReadLine();
+            addressBook.Remove(firstname);
 
 
         }
