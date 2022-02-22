@@ -34,7 +34,11 @@ namespace AddressBook
 
             addressBook.addContact(firstName, lastName, address, email,phoneNo,state, zip);
 
+            Console.WriteLine("\nIf you want to edit contact plz enter name");
+            string name = Console.ReadLine();
+            addressBook.Edit(name);
 
+            addressBook.addContact(firstName, lastName, email, phoneNo , address, zip , state);
 
 
 

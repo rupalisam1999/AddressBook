@@ -24,7 +24,37 @@ namespace AddressBook
                 zip = zip,
             });
             Console.WriteLine("$Contact of {firstName} has been add.");
+
         }
-            
+        public void Edit(string Name)
+        {
+            Contact editContact =null;
+            foreach (var Contact in contacts) 
+            {
+
+                if (Contact.firstName.Contains(Name))
+                {
+                    editContact = Contact;
+                }
             }
+            Console.WriteLine("Plz provide new no");
+            editContact.phoneNo = Console.ReadLine();
+
+            Console.WriteLine("Plz provide new email");
+            editContact.email = Console.ReadLine();
+
+            Console.WriteLine("Plz provide new address");
+            editContact.address = Console.ReadLine();
+
+            Console.WriteLine("Plz provide new state");
+            editContact.state = Console.ReadLine();
+
+            Console.WriteLine("Plz provide new zip");
+            editContact.zip = Console.ReadLine();
+
+            contacts.Add(editContact);
+            Console.WriteLine($"Contact of {Name} has been edited");
+
+        }
+    }
 }
