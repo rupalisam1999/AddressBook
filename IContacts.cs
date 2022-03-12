@@ -8,9 +8,11 @@ namespace AddressBook
 {
     interface IContacts
     {
-        public void addContact(string firstName, string lastName, string address, string email, string no, String state, string zip);
-        public void Edit(string Name);
-        public void Remove(string name);
-       
+        public void addContact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email);
+        public void Edit(string firstName);
+        public void delet(string name);
+
+        public void displayContact();
+
     }
 }

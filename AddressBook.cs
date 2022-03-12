@@ -8,39 +8,49 @@ namespace AddressBook
 {
     class AddressBook : IContacts
     {
-        List<Contact> contacts = new List<Contact>();
+        public List<Contact> contactList;
 
-        public void addContact(string firstName, string lastName, string address, string email, string no, String state, string zip)
+        public AddressBook()
         {
-            contacts.Add(new Contact()
+            this.contactList = new List<Contact>();
+        }
+
+        public void addContact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email)
+        {
+            bool duplicate = equals(firstName);
+            if (!duplicate)
             {
+                Contact contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+                contactList.Add(contact);
+            }
+            else
+            {
+                Console.WriteLine("Cannot add duplicate contacts first name");
+            }
+        }
 
-                phoneNo = no,
-                firstName = firstName,
-                lastName = lastName,
-                email = email,
-                address = address,
-                state = state,
-                zip = zip,
-            });
-            Console.WriteLine("$Contact of {firstName} has been add.");
-
+        private bool equals(string firstName)
+        {
+            if (this.contactList.Any(e => e.firstName == firstName))
+                return true;
+            else
+                return false;
         }
         public void Edit(string firstName)
         {
             Contact editContact = null;
 
-            foreach (var Contact in contacts)
+            foreach (Contact contact in contactList)
             {
-               
 
-                if (Contact.firstName.Contains(firstName))
+
+                if (firstName.Equals(contact.firstName))
                 {
-                    editContact = Contact;
+                    editContact = null;
                 }
             }
             Console.WriteLine("Plz provide new no");
-            editContact.phoneNo = Console.ReadLine();
+            editContact.phoneNumber = Console.ReadLine();
 
             Console.WriteLine("Plz provide new email");
             editContact.email = Console.ReadLine();
@@ -54,25 +64,40 @@ namespace AddressBook
             Console.WriteLine("Plz provide new zip");
             editContact.zip = Console.ReadLine();
 
-            contacts.Add(editContact);
+            contactList.Add(editContact);
             Console.WriteLine($"Contact of {firstName} has been edited");
         }
 
-        public void Remove(string name)
+        public void delet(string name)
         {
             Contact RemoveContact = null;
-            foreach (var contact in contacts)
+            foreach (Contact contact in contactList)
             {
                 if (contact.firstName.Contains(name))
                 {
                     RemoveContact = contact;
                 }
             }
-            contacts.Remove(RemoveContact);
+            contactList.Remove(RemoveContact);
             Console.WriteLine($"Contact of {name} has been deleted");
         }
 
-       
+        public void displayContact()
+        {
+            foreach (Contact contact in contactList)
+            {
+                Console.WriteLine("\nFirst name = " + contact.firstName);
+                Console.WriteLine("Last name = " + contact.lastName);
+                Console.WriteLine("Address = " + contact.address);
+                Console.WriteLine("city = " + contact.city);
+                Console.WriteLine("state = " + contact.state);
+                Console.WriteLine("zip = " + contact.zip);
+                Console.WriteLine("phoneNumber = " + contact.phoneNumber);
+                Console.WriteLine("email = " + contact.email);
+            }
+        }
+
+
 
 
 
