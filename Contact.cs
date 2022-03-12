@@ -16,6 +16,9 @@ namespace AddressBook
         public string email { get; set; }
         public string state { get; set; }
         public string zip { get; set; }
+
+     
+
     }
 
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    class AddressBook
+    class AddressBook : IContacts
     {
         List<Contact> contacts = new List<Contact>();
 
@@ -26,13 +26,15 @@ namespace AddressBook
             Console.WriteLine("$Contact of {firstName} has been add.");
 
         }
-        public void Edit(string Name)
+        public void Edit(string firstName)
         {
             Contact editContact = null;
+
             foreach (var Contact in contacts)
             {
+               
 
-                if (Contact.firstName.Contains(Name))
+                if (Contact.firstName.Contains(firstName))
                 {
                     editContact = Contact;
                 }
@@ -53,25 +55,30 @@ namespace AddressBook
             editContact.zip = Console.ReadLine();
 
             contacts.Add(editContact);
-            Console.WriteLine($"Contact of {Name} has been edited");
+            Console.WriteLine($"Contact of {firstName} has been edited");
         }
 
-            public void Remove(string name)
+        public void Remove(string name)
+        {
+            Contact RemoveContact = null;
+            foreach (var contact in contacts)
             {
-                Contact RemoveContact = null;
-                foreach (var contact in contacts)
+                if (contact.firstName.Contains(name))
                 {
-                    if (contact.firstName.Contains(name))
-                    {
-                        RemoveContact = contact;
-                    }
+                    RemoveContact = contact;
                 }
-                contacts.Remove(RemoveContact);
-                Console.WriteLine($"Contact of {name} has been deleted");
             }
+            contacts.Remove(RemoveContact);
+            Console.WriteLine($"Contact of {name} has been deleted");
         }
+
+       
+
+
+
+
     }
 
-
+}
     
 
