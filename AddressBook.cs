@@ -97,13 +97,35 @@ namespace AddressBook
             }
         }
 
-
-
-
+        public List<string> findPersons(string place)
+        {
+            List<string> personFounded = new List<string>();
+            foreach (Contact contacts in contactList.FindAll(e => (e.city.Equals(place))).ToList())
+            {
+                string name = contacts.firstName + " " + contacts.lastName;
+                personFounded.Add(name);
+            }
+            if (personFounded.Count == 0)
+            {
+                foreach (Contact contacts in contactList.FindAll(e => (e.state.Equals(place))).ToList())
+                {
+                    string name = contacts.firstName + " " + contacts.lastName;
+                    personFounded.Add(name);
+                }
+            }
+            return personFounded;
+        }
 
 
     }
 
+
+
+
+
+
 }
+
+
     
 
