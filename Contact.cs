@@ -21,21 +21,31 @@ namespace AddressBook
             this.email = email;
         }
 
-        public string firstName { get; set; }
-        public  string lastName { get; set; }
-        public string address { get; set; }
-        public string phoneNumber { get; set; }
+        public string firstName;
+        public string lastName;
+        public string address;
+        public string phoneNumber;
 
-        public string city { get; set; }
+        public string city;
 
-        public string email { get; set; }
-        public string state { get; set; }
-        public string zip { get; set; }
+        public string email;
+        public string zip;
+        public string state;
 
-     
 
+        public override string ToString()
+        {
+            return firstName + "\n" + lastName + "\n" + address + "\n" + city + "\n" + state + "\n" + zip + "\n" + phoneNumber + "\n" + email;
+        }
     }
-
 }
 
     
+   
+
+
+
+
+
+
+

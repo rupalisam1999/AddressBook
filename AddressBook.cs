@@ -46,7 +46,7 @@ namespace AddressBook
 
                 if (firstName.Equals(contact.firstName))
                 {
-                    editContact = null;
+                    editContact = contact;
                 }
             }
             Console.WriteLine("Plz provide new no");
@@ -96,14 +96,52 @@ namespace AddressBook
                 Console.WriteLine("email = " + contact.email);
             }
         }
+        public List<string> findPersons(string place)
+        {
+            List<string> personFounded = new List<string>();
+            foreach (Contact contacts in contactList.FindAll(e => (e.city.Equals(place))).ToList())
+            {
+                string name = contacts.firstName + " " + contacts.lastName;
+                personFounded.Add(name);
+            }
+            if (personFounded.Count == 0)
+            {
+                foreach (Contact contacts in contactList.FindAll(e => (e.state.Equals(place))).ToList())
+                {
+                    string name = contacts.firstName + " " + contacts.lastName;
+                    personFounded.Add(name);
+                }
+            }
+            return personFounded;
+        }
 
-
-
-
-
-
+        /// <summary>
+        /// Sort methode for sort entites in adress book.
+        /// </summary>
+        public void sort()
+        {
+            List<string> sortList = new List<string>();
+            foreach (Contact contacts in contactList)
+            {
+                string sort = contacts.ToString();
+                sortList.Add(sort);
+            }
+            sortList.Sort();
+            foreach (string sort in sortList)
+            {
+                Console.WriteLine(sort);
+            }
+        }
     }
-
 }
-    
+
+
+
+
+
+
+
+
+
+
 

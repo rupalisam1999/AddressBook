@@ -121,11 +121,18 @@ namespace AddressBook
             String phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter email= ");
             String email = Console.ReadLine();
-            adressBookBuilder.addContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+            if ((firstName != "") || (lastName != "") || (address != "") || (city != "") || (state != "") || (zip != "") || (email != "") || (phoneNumber != ""))
+            {
+                adressBookBuilder.addContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+            }
+            else
+            {
+                Console.WriteLine("Empty string not allowed \n for add contacts please give the input in string");
+            }
         }
     }
 }
 
 
-    
+
 
