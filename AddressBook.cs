@@ -162,8 +162,23 @@ namespace AddressBook
                 Console.WriteLine("\n FirstName = " + contact.firstName + "\n Last Name = " + contact.lastName + "\n Address = " + contact.address + "\n City = " + contact.city + "\n State = " + contact.state + "\n Zip = " + contact.zip + "\n Phone Number = " + contact.phoneNumber + "\n Email = " + contact.email);
             }
         }
+        // UC13 - read write  contact using fileio 
+        public void writeInTxtFile()
+        {
+            FileIo.WriteFile(contactList);
+        }
+
+        /// <summary>
+        /// Reads from text file.
+        /// </summary>
+        public void readFromTxtFile()
+        {
+            FileIo.readFile();
+        }
     }
 }
+    
+
 
 
 

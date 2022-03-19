@@ -1,0 +1,8 @@
+﻿ FirstName = rupali
+ Last Name = sangale
+ Address = tawarcolony latur
+ City = latur
+ State = maha
+ Zip = 413512
+ Phone Number = 9112
+ Email = rs@gmail.com
